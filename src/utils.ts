@@ -98,4 +98,5 @@ export const rpcUrl = {
   mainnet: "https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
   eden: "https://api.edennetwork.io/v1/rpc",
   fantom: "https://rpcapi.fantom.network",
+  mainnetLinkPool: "https://main-light.eth.linkpool.io",
 }
