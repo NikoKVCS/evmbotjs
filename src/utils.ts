@@ -50,7 +50,7 @@ export async function approveErc20(web3js: web3, privateKey: string, details: Tx
   console.log('approveErc20 result', result);
 }
 
-export async function getERC20Balance(web3js: web3, addrErc20: string, address: string) {
+export async function getErc20Balance(web3js: web3, addrErc20: string, address: string) {
   const erc20Contract = new web3js.eth.Contract(abiErc20 as AbiItem[], addrErc20);
   const balance = await erc20Contract.methods.balanceOf(address).call();
   return balance;
