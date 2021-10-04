@@ -1,4 +1,5 @@
 import web3 from "web3";
+import JSBI from "jsbi";
 import abiErc20 from "./abis/erc20.json";
 import { AbiItem } from "web3-utils";
 import { TransactionConfig } from "web3-core";
@@ -16,11 +17,11 @@ export function getWeb3js(rpc: string): web3 {
 }
 
 export function toWei(num: number | string): string {
-  return web3.utils.toWei(Number(num).toFixed(18), "ether");
+  return web3.utils.toWei(String(num), "ether");
 }
 
 export function toEther(num: number | string): string {
-  return web3.utils.fromWei(Number(num).toString(16), "ether");
+  return web3.utils.fromWei(String(num), "ether");
 }
 
 export function toHex(num: number | string): string {
