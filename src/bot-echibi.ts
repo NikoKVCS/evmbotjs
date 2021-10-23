@@ -33,8 +33,8 @@ export function mintGasFeeEstimate() {
     //const gasPrice = toWei("0.000000138262507444");
 
     // echibi mint gasfee analysis:
-    const gasFee = toWei("0.041988209913300048");
-    const gasPrice = toWei("0.000000057603949329");
+    const gasFee = toWei("0.329737325297552847");
+    const gasPrice = toWei("0.000000665398023803");
 
     const gasPriceBi = JSBI.BigInt(gasPrice);
     const gasFeeBi = JSBI.BigInt(gasFee);
@@ -44,7 +44,7 @@ export function mintGasFeeEstimate() {
 
     //console.log("gasFee", gasFee);
     //console.log("gasPrice", gasPrice);
-    //console.log("gas", gas);
+    console.log("gas", gas);
 
     const gasPriceHighBi = JSBI.BigInt(400*1e9);
     const gasHighBi = JSBI.multiply(gasBi, gasPriceHighBi);
@@ -54,8 +54,8 @@ export function mintGasFeeEstimate() {
     const b = 728912; // mint 6 gas used
     const increment = (a - b) / 4;
     const base = a - 10*increment;
-    console.log("increment", increment); // 
-    console.log("base",base)
-    console.log("predicted mint 10 gas used:", base+10*increment);
+    //console.log("increment", increment); // 
+    //console.log("base",base)
+    //console.log("predicted mint 5 gas used:", base+5*increment);
 
 }

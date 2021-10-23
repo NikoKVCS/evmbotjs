@@ -1,7 +1,7 @@
 import web3 from "web3";
 import JSBI from "jsbi";
 import fs from "fs";
-import {sendTx, toEther,getBalance, TxDetails} from "./utils";
+import {sendTx, toEther,getBalance, TxDetails, toWei} from "./utils";
 
 export async function createWallets(web3js: web3, fileName: string, num: number) {
   let json: any[] = [];
@@ -52,10 +52,32 @@ export async function collectETH(web3js: web3, fileName: string, targetAddr: str
     console.log("usd",  Number(toEther(gasFee))*3200);
     
     try {
-      //await sendTx(web3js, privateKey, txHeader);
+      await sendTx(web3js, privateKey, txHeader);
     } catch (err) {
       console.log(err);
     }
   }
   console.log("totalLeft", toEther(totalLeft))
+}
+
+export async function distributeEth(web3js: web3, fileName: string, srcAddr: string, privateKey: string, ethers: number) {
+  const json = JSON.parse(fs.readFileSync(`src/data/${fileName}.json`) as any);
+  const ethPerAccount = ethers/json.length;
+  
+  for (let i = 0; i<json.length; i++) {
+    const { address } = json[i];
+    
+    let txHeader: TxDetails = {
+      "from": srcAddr,
+      "value": toWei(ethPerAccount),
+      "to": address,
+    }
+    
+    try {
+      await sendTx(web3js, privateKey, txHeader);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
 }
