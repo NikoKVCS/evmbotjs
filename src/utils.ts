@@ -100,4 +100,5 @@ export const rpcUrl = {
   eden: "https://api.edennetwork.io/v1/rpc",
   fantom: "https://rpcapi.fantom.network",
   mainnetLinkPool: "https://main-light.eth.linkpool.io",
+  avax: "https://api.avax.network/ext/bc/C/rpc"
 }

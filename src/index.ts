@@ -4,6 +4,6 @@ import { getWeb3js, rpcUrl } from "./utils";
 import { collectETH, createWallets } from "./wallet-manager";
 import { mint } from "./bot-dirtybird";
 import { mintGasFeeEstimate } from "./bot-echibi";
+import { exportData } from "./bot-xava";
 
-//mint();
-mintGasFeeEstimate()
+exportData();
